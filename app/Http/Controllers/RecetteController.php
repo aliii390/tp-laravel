@@ -21,7 +21,7 @@ class RecetteController extends Controller
      */
     public function index()
     {
-        // Get a random recette with its ingredients
+   
         $recette = Recette::with('ingredients')->inRandomOrder()->take(1)->get();
 
         return view('recipes/index', [

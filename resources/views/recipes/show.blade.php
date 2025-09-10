@@ -48,5 +48,64 @@
             </div>
         </article>
 
+          <!-- Formulaire de commentaire et note -->
+    <section class="max-w-4xl mx-auto px-4 py-8">
+        <article class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Donnez votre avis</h2>
+            
+            <form class="space-y-6" method="POST" >
+               @csrf 
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Note</label>
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center">
+                            <input type="radio" name="note" value="1" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <label class="ml-2 text-sm text-gray-600">1</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="note" value="2" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <label class="ml-2 text-sm text-gray-600">2</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="note" value="3" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <label class="ml-2 text-sm text-gray-600">3</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="note" value="4" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <label class="ml-2 text-sm text-gray-600">4</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="note" value="5" class="w-4 h-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <label class="ml-2 text-sm text-gray-600">5</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Commentaire -->
+                <div class="space-y-2">
+                   
+                    <label for="commentaire" class="block text-sm font-medium text-gray-700">Votre commentaire</label>
+                    <input 
+                        id="commentaire" 
+                        name="commentaire" 
+                        rows="4" 
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        placeholder="Partagez votre expérience avec cette recette..."
+                    />
+                </div>
+
+                <!-- Bouton Submit -->
+                <div class="flex justify-end">
+                    <button 
+                        type="submit"
+                        class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
+                    >
+                        Envoyer mon avis
+                    </button>
+                </div>
+            </form>
+        </article>
+    </section>
 
 </x-layout>
