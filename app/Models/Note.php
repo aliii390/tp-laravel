@@ -13,6 +13,7 @@ class Note extends Model
     use HasFactory;
 
     protected $fillable = [
+        'recette_id',
         'note',
         'commentaire'
     ];

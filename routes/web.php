@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RecetteController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'homepage')->name('homepage');
@@ -7,6 +8,11 @@ Route::view('/', 'homepage')->name('homepage');
 Route::view('/projects', 'projects')->name('projects');
 
 
+Route::view('recipes/index', 'recipes.index')->name('index');
+
+
+Route::get('recipes', [RecetteController::class, 'index'])->name('recipes.index');
+Route::get('recipes/{id}', [RecetteController::class, 'show'])->name('recipes.show');
 
 // Route::get('/recipes', function(){
 //      $recipes = [

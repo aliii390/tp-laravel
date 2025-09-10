@@ -12,7 +12,7 @@ class Recette extends Model
     use HasFactory;
     
     protected $fillable = [
-
+        'ingredient_id',
         'name',
         'preparationTime',
         'cookingTime',

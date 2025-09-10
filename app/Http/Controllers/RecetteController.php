@@ -2,22 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingredient;
 use App\Models\Recette;
+use App\Repositories\RecetteRepositoryInterface;
+use Illuminate\Http\Request;
 
-abstract class Controller
+class RecetteController extends Controller
 {
-    
-    public function index(){
-        $recette = Recette::all();
-       
+    private $recettes;
+
+    public function __construct(RecetteRepositoryInterface $recettes)
+    {
+        $this->recettes = $recettes;
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        // Get a random recette with its ingredients
+        $recette = Recette::with('ingredients')->inRandomOrder()->take(1)->get();
 
+        return view('recipes/index', [
+            'recettes' => $recette
+        ]);
+    }
 
-     
-
-
-
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $recette = Recette::with('ingredients')->findOrFail($id);
+        return view('recipes/show', [
+            'recettes' => $recette
+        ]);
+    }
 }
-
-
